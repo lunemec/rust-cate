@@ -1,0 +1,13 @@
+[package]
+name = "rust-cate"
+version = "0.1.0"
+authors = ["Nemec Lukas <lukas.nemec2@firma.seznam.cz>"]
+description = "cat command in rust."
+homepage = "https://github.com/lunemec/rust-cate"
+repository = "https://github.com/lunemec/rust-cate"
+readme = "README.md"
+keywords = ["cat", "unix"]
+license = "unlicense"
+
+[dependencies]
+clap="2.13"
