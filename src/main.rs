@@ -50,7 +50,8 @@ fn main() {
         .author("Lukas Nemec <lu.nemec@gmail.com>")
         .about("cat in Rust - cate, concatenate FILE(s), or standard input, to standard output. Very naive implementation.")
         .arg(Arg::with_name("FILE")
-                 .multiple(true))
+                 .multiple(true)
+                 .required(true))
     .get_matches();
 
     if let Some(values) = matches.values_of("FILE") {
