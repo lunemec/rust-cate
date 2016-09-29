@@ -16,7 +16,7 @@ const BUFFER_CAPACITY: usize = 1024 * 64;
 fn write_buffer(handle: &mut StdoutLock, buffer: &[u8]) {
     match handle.write(&buffer) {
         Ok(_) => (),
-        Err(error) => panic!("Unable to write to stdout: {}", error),
+        Err(error) => panic!("cate: unable to write to stdout: {}", error.to_string()),
     }
 }
 
@@ -60,7 +60,7 @@ fn handle_input(input_file: &str) {
                     }
                     break 'read;
                 },
-                Err(error) => panic!("Error while reading file {}, error was: {}", input_file, error),
+                Err(error) => writeln!(&mut io::stderr(), "cate: {0}: {1}", input_file, error.to_string()).unwrap(),
             }
         }
     }
