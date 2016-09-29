@@ -1,6 +1,7 @@
 # rust-cate
 [![Crates.io]
 (https://img.shields.io/crates/v/rust-cate.svg)](https://crates.io/crates/rust-cate)
+
 cat in rust, you know, [cate](https://www.google.cz/search?q=google+images+cate&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj6soy1q6_PAhXGXhQKHZ2DDLkQ_AUICCgB&biw=1920&bih=960#tbm=isch&q=cate+meme).
 
 Also, in Rust we trust.
