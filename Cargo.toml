@@ -1,6 +1,6 @@
 [package]
 name = "rust-cate"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Nemec Lukas <lu.nemec@gmail.com>"]
 description = "cat in Rust - cate, concatenate FILE(s), or standard input, to standard output. Very naive implementation."
 homepage = "https://github.com/lunemec/rust-cate"
