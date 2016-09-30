@@ -13,3 +13,21 @@ Disclaimer: this is not a complete reimplementation of `cat` in rust, it is very
     $ echo "Some nice text" > myfile.txt
     $ cate myfile.txt
     Some nice text
+
+    $ cate cate
+       _
+       \`*-.
+        )  _`-.
+       .  : `. .
+       : _   '  \
+       ; *` _.   `*-._
+       `-.-'          `-.
+         ;       `       `.
+         :.       .        \
+         . \  .   :   .-'   .
+         '  `+.;  ;  '      :
+         :  '  |    ;       ;-.
+         ; '   : :`-:     _.`* ;
+      .*' /  .*' ; .*`- +'  `*'
+      `*-*   `*-*  `*-*'
+

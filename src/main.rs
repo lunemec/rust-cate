@@ -12,6 +12,24 @@ const DESCRIPTION: &'static str = env!("CARGO_PKG_DESCRIPTION");
 // A 64kB buffer for input reading.
 const BUFFER_CAPACITY: usize = 1024 * 64;
 
+const CATE: &'static str = "
+       _                        
+       \\`*-.                    
+        )  _`-.                 
+       .  : `. .                
+       : _   '  \\               
+       ; *` _.   `*-._          
+       `-.-'          `-.       
+         ;       `       `.     
+         :.       .        \\    
+         . \\  .   :   .-'   .   
+         '  `+.;  ;  '      :   
+         :  '  |    ;       ;-. 
+         ; '   : :`-:     _.`* ;
+      .*' /  .*' ; .*`- +'  `*' 
+      `*-*   `*-*  `*-*'        
+";
+
 
 fn write_buffer(handle: &mut StdoutLock, buffer: &[u8]) {
     match handle.write(&buffer) {
@@ -25,6 +43,9 @@ fn get_reader(input_file: &str) -> Option<Box<Read>> {
     if input_file == "-" {
         let stdin = io::stdin();
         return Some(Box::new(stdin) as Box<Read>);
+	} else if input_file == "cate" {
+		writeln!(&mut io::stderr(), "{0}", CATE.to_string()).unwrap();
+		None
     } else {
         match File::open(input_file) {
             Ok(file) => return Some(Box::new(BufReader::with_capacity(BUFFER_CAPACITY, file)) as Box<Read>),
