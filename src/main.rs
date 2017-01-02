@@ -61,7 +61,9 @@ fn stderr(output: &str) {
 fn file_reader(input_file: &path::PathBuf) -> Result<Box<Read>, io::Error> {
     if input_file.is_file() {
         match File::open(input_file) {
-            Ok(file) => return Ok(Box::new(BufReader::with_capacity(BUFFER_CAPACITY, file)) as Box<Read>),
+            Ok(file) => {
+                return Ok(Box::new(BufReader::with_capacity(BUFFER_CAPACITY, file)) as Box<Read>)
+            }
             Err(error) => Err(error),
         }
     } else if input_file.is_dir() {
@@ -104,28 +106,30 @@ fn handle_input(input: &path::PathBuf) -> u8 {
 
     if *input == *CATE_PATH {
         print_cate();
-        return 0
+        return 0;
     } else if *input == *STDIN_PATH {
         let stdin = io::stdin();
         match read_input(Box::new(stdin) as Box<Read>) {
             Ok(_) => return 0,
             Err(error) => {
                 stderr(format!("{0}: {1}", error_part, error).as_str());
-                return 1
+                return 1;
             }
         }
     } else {
         match file_reader(input) {
-            Ok(reader) => match read_input(reader) {
-                Ok(_) => return 0,
-                Err(error) => {
-                    stderr(format!("{0}: {1}", error_part, error).as_str());
-                    return 1
+            Ok(reader) => {
+                match read_input(reader) {
+                    Ok(_) => return 0,
+                    Err(error) => {
+                        stderr(format!("{0}: {1}", error_part, error).as_str());
+                        return 1;
+                    }
                 }
-            },
+            }
             Err(error) => {
                 stderr(format!("{0}: {1}", error_part, error).as_str());
-                return 1
+                return 1;
             }
         }
     }
@@ -143,7 +147,7 @@ fn main() {
             .help("file or - for stdin"))
         .get_matches();
 
-    let mut exit_codes: Vec<u8> = vec!();
+    let mut exit_codes: Vec<u8> = vec![];
     if let Some(values) = matches.values_of("FILE") {
         for input in values {
             let path = path::PathBuf::from(input);
