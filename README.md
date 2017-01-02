@@ -19,7 +19,7 @@ Disclaimer: this is not a complete reimplementation of `cat` in rust, it is very
     ----------- meow start -----------
           _
           \`*-.
-            )  _`-.
+           )  _`-.
           .  : `. .
           : _   '  \
           ; *` _.   `*-._
